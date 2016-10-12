@@ -5,16 +5,40 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="simon-game.css">
+        <link href="https://fonts.googleapis.com/css?family=Jomhuria" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+        <script src="jquery-3.1.1.min.js"></script>
+        <script src="simon-game.js"></script>
     </head>
     <body>
         <div class="container">
             <div class="container-inside">
-                <div class="button left-top"></div>
-                <div class="button right-top"></div>
-                <div class="button left-bottom"></div>
-                <div class="button right-bottom"></div>
-                <div class="center"></div>
+                <div class="button left-top" data-audio="https://s3.amazonaws.com/freecodecamp/simonSound1.mp3"></div>
+                <div class="button right-top" data-audio="https://s3.amazonaws.com/freecodecamp/simonSound2.mp3"></div>
+                <div class="button left-bottom" data-audio="https://s3.amazonaws.com/freecodecamp/simonSound3.mp3"></div>
+                <div class="button right-bottom" data-audio="https://s3.amazonaws.com/freecodecamp/simonSound4.mp3"></div>
+                <div class="center">
+                    <div class="label">Simon<span class="small">®</span></div>
+                    <div class="screen"></div>  
+                    <div style="position:relative;">
+                        <div class="on">ON</div>
+                        <label class="switch">
+                            <input type="checkbox" checked>
+                            <div class="slider round"></div>
+                        </label> 
+                        <div class="off">OFF</div>
+                    </div>
+                    <div class="start">
+                        <div class="button"></div>
+                        <div class="name">START</div>
+                    </div>
+                    <div class="strict">
+                        <div class="button"></div>
+                        <div class="name">STRICT</div>
+                    </div>
+                </div>
             </div>
         </div>
+        
     </body>
 </html>

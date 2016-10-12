@@ -54,3 +54,132 @@ and open the template in the editor.
     background-color:#ECE7EE;
     border: 12px solid #333;
 }
+.label {
+    font-size: 4em;
+    margin-top:20px;
+    margin-left:40px;
+    font-family: 'Jomhuria', cursive;
+}
+.label .small {
+    font-size: 0.5em;
+    vertical-align: top;
+}
+.screen {
+    width: 60px;
+    height: 40px;
+    border: 5px solid #333;
+    margin-left: 22px;
+    margin-top: -14px;
+    border-radius: 10px;
+    background-color: #32050C;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+
+.switch input {display:none;}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #333;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #2196F3;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+label {
+    margin-top: 20px;
+    margin-left: 70px;
+}
+
+.on, .off {
+    position: absolute;
+    top: 7px;
+    font-size: 0.9em;
+    font-family : 'Oswald',Arial,sans;
+}
+.on {
+    left: 45px;
+    top:27px;
+}
+.off {
+    right: 45px;
+    top:27px;
+}
+.start, .strict {
+    position:absolute;
+    text-align: center;
+}
+.start {
+    top: 74px;
+    right: 60px;
+}
+.strict {
+    top: 73px;
+    right: 8px;
+}
+.start .button, .strict .button {
+    width:15px;
+    height: 15px;
+    border:solid;
+    border-radius: 100%;
+    
+}
+.start .button {
+    background-color : #9f0f17;
+}
+.strict .button {
+    background-color : #cca707;
+}
+.start .name, .strict .name {
+    font-size: 0.9em;
+    font-family : 'Oswald',Arial,sans;
+}
+
+.left-top.active {
+    background-color : #13ff7c;
+}
+.right-top.active {
+    background-color : #ff4c4c;
+}
+.left-bottom.active {
+    background-color : #fed93f;
+}
+.right-bottom.active {
+    background-color : #1c8cff;
+}

@@ -126,7 +126,17 @@ label {
     margin-top: 20px;
     margin-left: 70px;
 }
-
+.screen {
+    font-family: 'digital-clock-font', sans-serif;
+    font-size: 3em;
+    text-align: center;
+}
+.screen.led-on {
+    color : #DC0D29;
+}
+.screen{
+    color:#430710;
+}
 .on, .off {
     position: absolute;
     top: 7px;
@@ -182,4 +192,16 @@ label {
 }
 .right-bottom.active {
     background-color : #1c8cff;
+}
+.error-message,.win-message {
+    font-family: 'Jomhuria', cursive;
+    font-size: 3em;
+    text-align: center;
+    margin-top:50px;
+    margin-bottom: -98px;
+    display:none;
+}
+@font-face{
+ font-family:'digital-clock-font';
+ src: url('digital.ttf');
 }

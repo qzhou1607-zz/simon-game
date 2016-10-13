@@ -10,6 +10,7 @@ $(document).ready(function() {
         sound.play();
     }
     game = {};
+    game.strict = false;
     game.start = function() {
         self = this;
         self.reset();
@@ -21,6 +22,7 @@ $(document).ready(function() {
         self = this;
         self.sequence = [];
         self.index = 0;
+        self.strict = false;
     };
     //add one extra node to sequence
     game.addNode = function() {
@@ -35,7 +37,7 @@ $(document).ready(function() {
         var count = 0;
         self.updateCount();
         var repeat = setInterval(function() {
-            if (count === self.sequence.length) {
+            if (count >= self.sequence.length) {
                 clearInterval(repeat);
             }
             var buttonId = self.sequence[count];
@@ -57,6 +59,7 @@ $(document).ready(function() {
     game.verifyNode = function(element) {
         self = this;
         var node = $(element).attr('id');
+        
         if (node == self.sequence[self.index]) { //right node
             self.index += 1;
             if (self.index === 20) { //all 20 nodes right
@@ -74,10 +77,17 @@ $(document).ready(function() {
             }
         } else { //wrong node
             self.alertError();
-            setTimeout(function() {
-                self.playSequence();
-                self.index = 0;
-            },1000);
+            if (game.strict) { //strict mode on
+                setTimeout(function() {
+                    game.start();
+                    game.playSequence();
+                },1000);
+            } else {
+                setTimeout(function() {
+                    self.playSequence();
+                    self.index = 0;
+                },1000);
+            }
         }
     };
     game.alertError = function() {
@@ -93,12 +103,23 @@ $(document).ready(function() {
         self = this;
         $('.screen').text(self.sequence.length);
     };
-    
+    game.toggleStrictMode = function() {
+        self = this;
+        if (game.strict === false) {
+            game.strict = true;
+        } else {
+            game.strict = false;
+        }
+    }
     $('input[type="checkbox"]').on('click', function() {
         if ($(this).is(':checked')) {
             $('.screen').addClass('led-on');
             game.reset();
             game.updateCount();
+            //toggle strict mode
+            $('.strict').off('click').on('click', function() {
+                game.toggleStrictMode();
+            });
         } else {
             $('.screen').removeClass('led-on');
             game.reset();
@@ -110,7 +131,7 @@ $(document).ready(function() {
     $('.start .btn').on('click',function() {
         game.start();
         game.playSequence();
-        $('.button.clickable').on('click', function() {
+        $('.button.clickable').off('click').on('click', function() {
             game.playANode(this);
             game.verifyNode(this);
         });

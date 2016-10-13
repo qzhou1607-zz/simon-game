@@ -93,10 +93,26 @@ $(document).ready(function() {
         self = this;
         $('.screen').text(self.sequence.length);
     };
-    game.start();
-    game.playSequence();
-    $('.button.clickable').on('click', function() {
-        game.playANode(this);
-        game.verifyNode(this);
+    
+    $('input[type="checkbox"]').on('click', function() {
+        if ($(this).is(':checked')) {
+            $('.screen').addClass('led-on');
+            game.reset();
+            game.updateCount();
+        } else {
+            $('.screen').removeClass('led-on');
+            game.reset();
+            $('.button').removeClass('clickable');
+            $('.button').unbind();
+        }
+    });
+    
+    $('.start .btn').on('click',function() {
+        game.start();
+        game.playSequence();
+        $('.button.clickable').on('click', function() {
+            game.playANode(this);
+            game.verifyNode(this);
+        });
     });
 });

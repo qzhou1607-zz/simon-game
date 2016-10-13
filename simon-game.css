@@ -163,17 +163,17 @@ label {
     top: 73px;
     right: 8px;
 }
-.start .button, .strict .button {
+.start .btn, .strict .btn {
     width:15px;
     height: 15px;
     border:solid;
     border-radius: 100%;
     
 }
-.start .button {
+.start .btn {
     background-color : #9f0f17;
 }
-.strict .button {
+.strict .btn {
     background-color : #cca707;
 }
 .start .name, .strict .name {
@@ -200,6 +200,9 @@ label {
     margin-top:50px;
     margin-bottom: -98px;
     display:none;
+}
+.button.clickable:hover, .btn:hover {
+    cursor: pointer;
 }
 @font-face{
  font-family:'digital-clock-font';
